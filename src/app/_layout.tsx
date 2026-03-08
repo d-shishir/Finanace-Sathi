@@ -4,21 +4,23 @@ import { Stack } from 'expo-router/stack';
 import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { useIsDark } from '@/hooks/use-theme-colors';
+import { useIsDark, useThemeColors } from '@/hooks/use-theme-colors';
 
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const isDark = useIsDark();
+  const colors = useThemeColors();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.background }}>
         <StatusBar style={isDark ? 'light' : 'dark'} />
         <Stack
           screenOptions={{
             headerShown: false,
             animation: 'slide_from_right',
+            contentStyle: { backgroundColor: colors.background },
           }}
         >
           <Stack.Screen name="(onboarding)" />

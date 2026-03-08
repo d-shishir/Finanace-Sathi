@@ -217,7 +217,7 @@ export default function SettingsScreen() {
               <Switch
                 value={profile.darkMode}
                 onValueChange={(value) => setProfile({ darkMode: value })}
-                trackColor={{ false: colors.border, true: colors.primary }}
+                trackColor={{ false: colors.border, true: colors.accent }}
                 thumbColor="#FFFFFF"
               />
             }

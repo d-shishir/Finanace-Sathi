@@ -27,7 +27,7 @@ export default function IncomeScreen() {
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1 }}
+      style={{ flex: 1, backgroundColor: colors.background }}
       behavior={process.env.EXPO_OS === 'ios' ? 'padding' : 'height'}
     >
       <View
